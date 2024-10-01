@@ -24,6 +24,10 @@ int main() {
         return -1;
     }
 
+    // Create the background sprite
+    sf::Sprite backgroundSprite;
+    backgroundSprite.setTexture(backgroundTexture);
+
     // Handle player setup
     std::vector<Player> players;
     int playerCount = 0;
@@ -61,8 +65,6 @@ int main() {
         window.clear();
 
         // Draw the background
-        sf::Sprite backgroundSprite;
-        backgroundSprite.setTexture(backgroundTexture);
         window.draw(backgroundSprite);
 
         // Draw players on the board
@@ -107,11 +109,11 @@ int main() {
                     std::cin >> buildChoice;
 
                     if (buildChoice == 'h') {
-                        landedProperty->buildHome();  // Call the method without checking for a return value
-                        std::cout << current.name << " built a home on " << landedProperty->name << ".\n";
+                        landedProperty->buildHome();
+                        // std::cout << current.name << " built a home on " << landedProperty->name << ".\n";
                     } else if (buildChoice == 'o') {
-                        landedProperty->buildHotel();  // Call the method without checking for a return value
-                        std::cout << current.name << " built a hotel on " << landedProperty->name << ".\n";
+                        landedProperty->buildHotel();
+                        // std::cout << current.name << " built a hotel on " << landedProperty->name << ".\n";
                     }
                 }
             }
@@ -143,16 +145,16 @@ int main() {
         window.draw(purchaseSign);
 
         // Draw houses and hotels on the properties where the current player is standing
-                for (const auto& slot : board.slots) {
-                    if (slot->houses > 0 && slot->owner == &current) {  // Use pointer comparison
-                        slot->updateBuildingPosition(current.sprite.getPosition()); // Update to player's position
-                        window.draw(slot->houseSprite); // Draw the house
-                    }
-                    if (slot->hasHotel && slot->owner == &current) {  // Use pointer comparison
-                        slot->updateBuildingPosition(current.sprite.getPosition()); // Update to player's position
-                        window.draw(slot->hotelSprite); // Draw the hotel
-                    }
-                }
+        for (const auto& slot : board.slots) {
+            if (slot->houses > 0 && slot->owner == &current) {
+                slot->updateBuildingPosition(current.sprite.getPosition());
+                window.draw(slot->houseSprite);
+            }
+            if (slot->hasHotel && slot->owner == &current) {
+                slot->updateBuildingPosition(current.sprite.getPosition());
+                window.draw(slot->hotelSprite);
+            }
+        }
 
         window.display();
     }

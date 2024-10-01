@@ -6,6 +6,16 @@
 #include <memory>
 #include "Property.h"
 
+// Define PropertyData struct here
+struct PropertyData {
+    std::string name;
+    int price;
+    int rent;
+    std::string colorGroup;
+    bool isRailroad;
+    bool isUtility;
+};
+
 class Board {
 public:
     std::vector<std::unique_ptr<Property>> slots;
@@ -15,7 +25,7 @@ public:
 
 
     Board();
-    void addStreet(const std::string& name, int price, int rent, const std::string& colorGroup);
+    void addProperty(const PropertyData& data);    
     Property* getSlot(int position);
     void draw(sf::RenderWindow& window);
 

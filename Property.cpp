@@ -39,7 +39,7 @@ void Property::buildHome() {
         if (owner->money >= homeCost) {
             owner->money -= homeCost;
             houses++;
-            std::cout << owner->name << " built a house on " << name << ". Total houses: " << houses << "\n";
+            std::cout << owner->name << " built a homess on " << name << ". Total houses: " << houses << "\n";
             housePositions.push_back(owner->sprite.getPosition());
         } else {
             std::cout << owner->name << " doesn't have enough money to build a house.\n";
