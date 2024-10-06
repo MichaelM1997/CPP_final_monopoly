@@ -2,7 +2,8 @@
 #include <vector>
 
 
-// Function to create the list of properties
+// create the list of properties
+// name, price, rent, colorGroup, isRailroad, isUtility
 std::vector<PropertyData> createPropertyList() {
     return {
         {"Go", 0, 0, "", false, false},

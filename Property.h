@@ -29,7 +29,6 @@ public:
     std::vector<sf::Vector2f> hotelPositions; 
 
     Property(const std::string& name, int price, int rent, const std::string& colorGroup = "", bool isRailroad = false, bool isUtility = false);
-    // Property(const std::string& propertyName, int propertyPrice, int propertyRent, const std::string& color = "", bool train = false, bool utility = false);
     
     void setOwner(Player* newOwner);
     bool isOwned() const;
