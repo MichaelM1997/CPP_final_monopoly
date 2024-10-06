@@ -1,6 +1,6 @@
 # Monopoly Game
 
-This project is a simplified implementation of the classic Monopoly board game using C++ and SFML library.
+This project is a implementation of the classic Monopoly board game using C++ and SFML library.
 
 ## Features
 
